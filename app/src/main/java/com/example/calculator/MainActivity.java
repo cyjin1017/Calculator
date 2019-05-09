@@ -3,7 +3,10 @@ package com.example.calculator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -12,10 +15,11 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button one =findViewById(R.id.one);
-        Button two =findViewById(R.id.two);
-        Button three =findViewById(R.id.three);
-        Button four =findViewById(R.id.four);
+       final Button one =findViewById(R.id.one);
+       final Button two =findViewById(R.id.two);
+       final Button three =findViewById(R.id.three);
+       final Button four =findViewById(R.id.four);
+        final TextView view=findViewById(R.id.view);
         Button five =findViewById(R.id.five);
         Button six =findViewById(R.id.six);
         Button seven =findViewById(R.id.seven);
@@ -28,13 +32,23 @@ public class MainActivity extends AppCompatActivity  {
         Button div =findViewById(R.id.div);
         Button equ =findViewById(R.id.equ);
         Button last =findViewById(R.id.last);
+        Button back = findViewById(R.id.back);
+        Button clear = findViewById(R.id.clear);
 
-        one.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
+    OnClickListener btn =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(v==one){
+                view.setText(view.getText().toString()+1);
             }
-        });
+            else if(v==two){
+                view.setText(view.getText().toString()+2);
+            }
+
+        }
+    };
+
 
 
         two.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +155,22 @@ public class MainActivity extends AppCompatActivity  {
 
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
     }
 
     }
